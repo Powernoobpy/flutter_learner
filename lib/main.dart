@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_learner/todoItems.dart';
 
 void main() => runApp(MyApp());
 var title = "TitleTest";
@@ -9,12 +10,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text(title),
         ),
-        body: ListView(
-          children: <Widget>[tab],
+        body: Column(
+          children: <Widget>[tab,TodoItem(),TodoItem(),ColorSection]
         ),
       ),
     );
