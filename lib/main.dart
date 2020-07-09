@@ -3,11 +3,28 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_learner/todoItems.dart';
 
 void main() => runApp(MyApp());
-var title = "TitleTest";
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  var Test_count = 0;
+
+  void _onPress() {
+    print('alert ahaha');
+    setState(() {
+      Test_count++;
+    });
+    print('alert pai leaw $Test_count time');
+  }
+
   @override
   Widget build(BuildContext context) {
+    var title = "TitleTest";
     return MaterialApp(
       title: title,
       theme: ThemeData(
@@ -18,11 +35,12 @@ class MyApp extends StatelessWidget {
           title: Text(title),
         ),
         body: Column(
-          children: <Widget>[tab,TodoItem(),TodoItem(),ColorSection]
-        ),
+            children: <Widget>[tab, TodoItem(), TodoItem(), ColorSection]),
       ),
     );
   }
+
+  void buildOnPress() => _onPress();
 }
 
 Widget tab = Container(
@@ -31,13 +49,11 @@ Widget tab = Container(
     padding: EdgeInsets.all(10.0),
     child: Row(children: <Widget>[
       Expanded(
-        child: Text(title, style: TextStyle(fontSize: 20)),
+        child: Text("TestAtb", style: TextStyle(fontSize: 20)),
       ),
       Expanded(child: Button()),
       Expanded(child: TickImg())
-      ]
-    )
-);
+    ]));
 
 class TickImg extends StatelessWidget {
   @override
@@ -54,23 +70,25 @@ class Button extends StatelessWidget {
     return Container(
       child: RaisedButton(
           color: Colors.white,
-          child: Text(title),
-            elevation: 6.0,
-            onPressed: (){Buttontest(context);}),
+          child: Text("TestAtb"),
+          elevation: 6.0,
+          onPressed: () {
+            Buttontest(context);
+          }),
     );
   }
 
-  void Buttontest(BuildContext context){
-    var alert = AlertDialog
-      (title: Text("test"),
-        content: Text(title),);
-      showDialog(
-        context: context,
-        builder: (BuildContext context){
-        return alert;
-        }
+  void Buttontest(BuildContext context) {
+    var alert = AlertDialog(
+      title: Text("test"),
+      content: Text("TestAtb"),
     );
-  } 
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        });
+  }
 }
 
 Widget ColorSection = Container(
