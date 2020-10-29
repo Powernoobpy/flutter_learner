@@ -1,6 +1,14 @@
 # flutter_learner
 
-A new Flutter application.
+Project for Self-leaning by Poony
+
+## Feature
+- Stateless, Stateful
+- Widgets
+- Class
+- Images
+- MaterialApp
+- Styles
 
 ## Getting Started
 
